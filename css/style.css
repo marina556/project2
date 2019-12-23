@@ -7,13 +7,14 @@
 body {
 	font-family: "PT Sans", sans-serif;
 	text-transform: capitalize;
-	/* height: 2500px; */
 	perspective: 500px;
 }
 
-.container {
-	width: 85%;
-	margin: auto;
+.navbar-light .navbar-nav .nav-link ,.drop-item li  {
+	font: 300 15px/28px "Roboto", sans-serif;
+	text-transform: capitalize;
+	text-align: left;
+	color: black;
 }
 
 .general_header {
@@ -22,7 +23,10 @@ body {
 	text-align: center;
 	margin: 5% auto 4%;
 }
-
+#navbarNav{
+	text-align: left;
+	margin-right: 70px;
+}
 .general_header::after {
 	content: "";
 	width: 6%;
@@ -87,33 +91,10 @@ body {
 	transition: transform 0.5s;
 }
 /* ******************header****************** */
-header {
-	padding: 30px 0;
-	font-weight: bold;
-	font-size: 14px;
-}
-.header-content {
-	display: grid;
-	grid-template-columns: 2fr 5fr 2fr;
-	align-items: center;
-}
-.header-navbar {
-	padding-top: 0px;
-}
-.header-navbar > ul {
-	display: grid;
-	justify-items: center;
-	grid-template-columns: repeat(6, 16.6%);
-}
-.header-navbar ul a {
-	text-decoration: none;
-	color: #333;
-}
 .login ul {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
-	/* align-content: end; */
 }
 .login ul li {
 	cursor: pointer;
@@ -128,6 +109,9 @@ header {
 }
 .login span {
 	margin-left: 10px;
+	font: 300 15px/28px "Roboto", sans-serif;
+	text-transform: capitalize;
+
 }
 .counter {
 	position: relative;
@@ -146,44 +130,46 @@ header {
 	color: white;
 	border-radius: 50%;
 }
-.header-item {
+/* .header-item {
 	position: relative;
-	padding: 2% 4%;
-}
-.header-item::after {
+	padding: .5% 1.5%;
+} */
+/* .header-item::after {
 	content: "";
-	border-style: solid;
-	border-width: 0 2px;
-	border-color: #7b5244;
-	width: 119%;
-	height: 166%;
-	position: absolute;
-	top: -6px;
-	left: -6px;
-	transition: transform 0.1s;
-	transform-origin: center;
-	transform: scale(1, 0);
-}
-.header-item:hover:after {
-	transform: scale(1, 1);
+    border-style: solid;
+    border-width: 0 2px;
+    border-color: #7b5244;
+    width: 83%;
+    height: 74%;
+    position: absolute;
+    top: 6px;
+    left: 13px;
+    transition: transform 0.1s;
+    transform-origin: center;
+    transform: scale(1, 0);
+} */
+
+/* .header-item:hover {
+    border-width: 0 2px;
+
 }
 
 .header-item::before {
 	content: "";
-	border-style: solid;
-	border-width: 2px 0;
-	border-color: #7b5244;
-	width: 0;
-	height: 150%;
-	position: absolute;
-	top: -6px;
-	left: -5px;
-	transition: width 0.1s;
-	transition-delay: 0.1s;
+    border-style: solid;
+    border-width: 2px 0;
+    border-color: #7b5244;
+    width: 0;
+    height: 74%;
+    position: absolute;
+    top: 6px;
+    left: 13px;
+    transition: width 0.1s;
+    transition-delay: 0.1s;
 }
 .header-item:hover:before {
-	width: 120%;
-}
+	width: 82%;
+} */
 
 .drop {
 	position: absolute;
@@ -193,10 +179,7 @@ header {
 	background-color: white;
 	padding: 30px 14px;
 	border: 2px solid #7b5244;
-	transform: scale(0);
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 1.5s, transform 1.5s;
+	animation:dropAnmi 1S;
 }
 .drop1 {
 	column-count: 3;
@@ -210,28 +193,23 @@ header {
 	line-height: 2;
 	cursor: pointer;
 }
-.drop-down {
-	font-size: 15px;
-	font-weight: 100;
-}
-.header-item-nav:hover .drop {
-	transform: scale(1);
-	visibility: visible;
-	opacity: 1;
-	/* transition: opacity 1.5s */
-}
 
-.drop-header,
+@keyframes dropAnmi{
+	0% 
+	{
+		transform: scale(0);
+
+	}
+	100%{
+		transform: scale(1);
+
+	}
+}
+ .drop-header,
 .drop-down:hover {
 	color: #7b5244;
 }
 
-.drop-item hr {
-	background-color: gainsboro;
-	width: 80%;
-	border: 0;
-	height: 1px;
-}
 /****************************** slider ******************************/
 .slider-img {
 	position: relative;
@@ -280,12 +258,7 @@ header {
 	position: relative;
 }
 .Category-imgs {
-	max-width: 100%;
-	display: grid;
-	grid-template-columns: repeat(4, 23%);
-	grid-column-gap: 2.67%;
 	margin-bottom: 7%;
-	position: relative;
 }
 
 .category-details {
@@ -299,7 +272,7 @@ header {
 .Category-imgs-item:hover .category-icon {
 	visibility: visible;
 	opacity: 1;
-	transition: visibility 1s, opacity 1s;
+	transition: all 1s;
 }
 .category-img {
 	width: 100%;
@@ -333,22 +306,15 @@ header {
 }
 
 /* **************************************Discount****************************************** */
-.Discount {
-	display: grid;
-	column-gap: 5%;
-	grid-template-columns: 3.5fr 2fr 2fr;
-}
 
 .Discount-item1 {
-	padding: 6%;
+	padding: 2%;
 	background-color: #f7f3ef;
-	height: 306px;
+	height: auto;
+	margin-bottom: 30px;
 }
 .Discount-item1-grid {
-	display: grid;
-	grid-template-columns: 1.1fr 5fr;
-	align-items: flex-end;
-	margin-bottom: 4%;
+	margin-bottom: 3%;
 }
 .Discount-item1-grid .fa {
 	color: #7b5244;
@@ -356,6 +322,7 @@ header {
 }
 .Discount-item1-grid div {
 	padding-bottom: 4px;
+	margin-top: 15px;
 }
 .Discount-item1-grid h3 {
 	font-size: 21px;
@@ -365,12 +332,13 @@ header {
 	color: gray;
 	line-height: 2;
 	font-size: 14px;
+
 }
 .lines {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	width: 50%;
-	margin: 8% 0 0 54%;
+	margin: 5% 0 0 54%;
 }
 .line {
 	height: 2px;
@@ -383,27 +351,18 @@ header {
 	cursor: pointer;
 	transition: background-color 0.5s;
 }
-.Discount-item2,
-.Discount-item3 {
-	background-size: contain;
-    height: 330px;
-	width: 100%;
-	background-repeat:no-repeat;
-	padding: 8%;
-}
+
 .Discount-item2:hover,
 .Discount-item3:hover {
-	/* background-size: cover; */
-	/* transition: background-size 2s; */
 	animation-name: discount-animation;
 	animation-duration: 1.5s;
 	animation-fill-mode: both;
 }
-.Discount-item2 {
-	background-image: url(../images/cms-banner-1.jpg);
-}
-.Discount-item3 {
-	background-image: url(../images/cms-banner-2.jpg);
+
+
+.Discount-item2 img,.Discount-item3 img{
+	position: relative;
+	width: 100%;
 }
 
 .Discount-item2 span,
@@ -411,11 +370,17 @@ header {
 	color: #7b5244;
 	font-size: 18px;
 	font-weight: 100;
+	position: absolute;
+	top:10px;
+	left:32px;
 }
 .Discount-item2 p,
 .Discount-item3 p {
 	font-size: 20px;
-	font-weight: 600;
+    font-weight: 600;
+    position: absolute;
+    top: 38px;
+    left: 32px;
 }
 
 /* **********************************sprite****************************** */
@@ -784,3 +749,15 @@ cursor: pointer;
 		width: 90%;
 	}
 }
+
+@media (max-width: 991px) {
+	.slider-img i {
+		width: 7%;
+		height: 16%;
+	}
+}
+
+
+
+
+/* ****************************************************** */
